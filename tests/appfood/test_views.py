@@ -76,10 +76,12 @@ class IndexPageTestCase(BaseTest):
 class ProductDetailPageTestCase(BaseTest):
     def test_product_detail_page_returns_200(self):
         response = self.client.get(reverse('product_detail', args=(self.initial_product.barcode,)))
+        self.assertEqual(self.initial_product.barcode, '8000500310427')
         self.assertEqual(response.status_code, 200)
 
     def test_product_detail_page_returns_404(self):
         response = self.client.get(reverse('product_detail', args=(self.initial_product.designation,)))
+        self.assertEqual(self.initial_product.designation, 'Nutella biscuits')
         self.assertEqual(response.status_code, 404)
 
 class SearchResultPageTestCase(BaseTest):
