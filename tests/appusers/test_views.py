@@ -98,6 +98,24 @@ class BaseTest(TestCase):
                 ).pk
         self.substituted_product = Product.objects.get(pk=self.created_product_pk2)
         
+        self.created_product_pk3 = Product.objects.create(
+                designation='Product name',
+                barcode='3331600385025',
+                brand='Brand',
+                nutriscore='A',
+                fat_value='4.6',
+                fat_level='MO',
+                saturated_fat_value='1.3',
+                saturated_fat_level='LO',
+                sugars_value='25',
+                sugars_level='HI',
+                salt_value='0.22',
+                salt_level='LO',
+                url='https://fr.openfoodfacts.org/produit/3331600385025/product-name',
+                image_url='https://static.openfoodfacts.org/images/products/333/160/038/5025/front_fr.205.400.jpg'
+                ).pk
+        self.substituted_product2 = Product.objects.get(pk=self.created_product_pk3)
+        
         self.created_substitute_pk = Substitute.objects.create(
             initial_product_id=self.created_product_pk1,
             substituted_product_id=self.created_product_pk2
@@ -140,7 +158,11 @@ class SavedSubstitutesViewTest(BaseTest):
         
     def test_saved_substitutes_view_post(self):
         self.client.force_login(self.user)
-        # response = self.client.post(self.delete_favourites_url, { 'substituteId': self.substitute.pk }, content_type='application/json')
+        # response = self.client.post(
+        #     self.favourites_url,
+        #     { 'initial-product-id': self.initial_product.pk, 'substituted-product-id': self.substituted_product2.pk },
+        #     content_type='application/json'
+        # )
         # self.assertEqual(response.status_code, 204)
 
 class DeleteSubstitutesViewTest(BaseTest):
