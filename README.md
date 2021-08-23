@@ -9,6 +9,7 @@ Project 10 aims to deploy Project 8 on a blank Ubuntu server.
 This application makes it possible to choose a food for which one wishes to obtain a better quality substitute, in order to improve one's diet. It's based on the Open Food Facts database. It's a free and collaborative database referencing food products from all over the world.
 
 The Open Food Facts website (FR): https://fr.openfoodfacts.org/
+
 To see the full Readme of the project 8 : https://github.com/Githb-usr/purbeurre
 
 # GUIDELINES #
